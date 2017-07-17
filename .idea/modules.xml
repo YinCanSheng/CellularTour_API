@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CellularTour.iml" filepath="$PROJECT_DIR$/.idea/modules/CellularTour.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CellularTour_main.iml" filepath="$PROJECT_DIR$/.idea/modules/CellularTour_main.iml" group="CellularTour" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CellularTour_test.iml" filepath="$PROJECT_DIR$/.idea/modules/CellularTour_test.iml" group="CellularTour" />
+    </modules>
+  </component>
+</project>
