@@ -1,6 +1,7 @@
 # CellularTour_API
 *请各自下载*
-#### 包结构
+
+#### 包结构说明
 
 controller:控制层,主要用来接收客户端发来的Http请求(andoird)。Jersey。 
 
