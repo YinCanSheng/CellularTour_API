@@ -26,6 +26,7 @@ dependencies {
 
     // Gson json
     compile 'com.google.code.gson:gson:2.8.0'
+    compile 'com.alibaba:fastjson:1.2.35'
     // Guava java 类封装
     compile 'com.google.guava:guava:21.0'
 

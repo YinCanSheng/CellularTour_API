@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="CellularTour_main:Web Gradle : CellularTour-1.0-SNAPSHOT.war">
+    <output-path>$PROJECT_DIR$/out/artifacts/CellularTour_main_Web_Gradle___CellularTour_1_0_SNAPSHOT_war</output-path>
+    <root id="archive" name="CellularTour_main_Web Gradle _ CellularTour-1.0-SNAPSHOT.war.war">
+      <element id="artifact" artifact-name="CellularTour_main:Web Gradle : CellularTour-1.0-SNAPSHOT.war exploded" />
+    </root>
+  </artifact>
+</component>
