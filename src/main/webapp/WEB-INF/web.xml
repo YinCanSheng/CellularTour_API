@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
     <!--入口-->
@@ -22,7 +21,7 @@
         <!--<url-pattern>/</url-pattern>-->
     </servlet-mapping>
 
-    <!---->
+    <!--Jersey相关-->
     <servlet>
         <servlet-name>ICellularTourApiServlet</servlet-name>
         <!--容器-->
@@ -31,12 +30,13 @@
         <init-param>
             <param-name>jersey.config.server.provider.packages</param-name>
             <!--映射的包名，用于搜索处理类-->
-            <param-value>net.qiujuer.web.italker.push.service</param-value>
+            <param-value>ch.cellularTour.controller.API</param-value>
         </init-param>
+
         <!--jersey全局配置-->
         <init-param>
             <param-name>javax.ws.rs.Application</param-name>
-            <param-value>net.qiujuer.web.italker.push.Application</param-value>
+            <param-value>ch.cellularTour.MApplication</param-value>
         </init-param>
 
         <!--启动时就加载-->
@@ -44,10 +44,45 @@
 
     </servlet>
 
-    <!--映射ICellularTourApiServlet的对应处理 -->
+    <!--映射ICellularTourApiServlet的对应处理 拦截所有以/api/*的请求-->
     <servlet-mapping>
         <servlet-name>ICellularTourApiServlet</servlet-name>
         <!--访问路径-->
         <url-pattern>/api/*</url-pattern>
     </servlet-mapping>
+
+    <!-- 该监听器将在Web容器启动时激活Spring，加载配置指定的配置文件。默认加载/WEB-INF/下的applicationContext.xml-->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <!-- 指定Spring Bean的配置文件所在目录。默认配置在WEB-INF目录下。 applicationContext.xml必须配置。作为Spring的入口文件。-->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:applicationContext.xml</param-value>
+    </context-param>
+
+    <!-- 处理由JavaBeans,Introspector的使用而引起的缓冲泄露,建议配置此监听器 -->
+    <listener>
+        <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+    </listener>
+    <!--Spring相关-->
+    <!--Spring-webMVC-配置中央控制器，对所有请求进行拦截并做请求路径，与处理请求桩模块之间的映射 DispatcherServlet继承至HttpServlet-->
+    <servlet>
+        <servlet-name>springmvc</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <!--自定义配置路径,必须配置。否则无法扫描.名字必须是contextConfigLocation-->
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:spring-mvc.xml</param-value>
+        </init-param>
+        <!--启动时加载-->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <!--这里是拦截所有-->
+    <servlet-mapping>
+        <servlet-name>springmvc</servlet-name>
+        <url-pattern>/web/*</url-pattern>
+    </servlet-mapping>
+
 </web-app>

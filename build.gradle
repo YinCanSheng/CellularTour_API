@@ -9,6 +9,11 @@ apply plugin: 'war'
 sourceCompatibility = 1.8
 
 repositories {
+    // maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+    mavenLocal()
+    jcenter()
+    // maven { url "http://repo.maven.apache.org/maven2/"}
+    // maven { url 'https://repo.spring.io/libs-milestone'}
     mavenCentral()/*使用Maven容器(pom.xml)获取依赖*/
 }
 
@@ -18,12 +23,30 @@ tasks.withType(JavaCompile) {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
+    // testCompile group: 'junit', name: 'junit', version: '4.11'
     testCompile group: 'junit', name: 'junit', version: '4.12'
 
-    providedCompile 'javax.servlet:javax.servlet-api:3.1.0' //书中是该值，'javax.servlet:servlet-api:2.5' 但是该库比较旧，我们使用最新的 Servlet 依赖
-    runtime 'javax.servlet:jstl:1.1.2'
+    //Spring相关
+    compile(
+            'commons-logging:commons-logging:1.2',
+            'org.springframework:spring-aop:4.2.4.RELEASE',
+            'org.springframework:spring-beans:4.2.4.RELEASE',
+            'org.springframework:spring-context:4.2.4.RELEASE',
+            'org.springframework:spring-core:4.2.4.RELEASE',
+            'org.springframework:spring-expression:4.2.4.RELEASE',
+            'org.springframework:spring-web:4.2.4.RELEASE',
+            'org.springframework:spring-webmvc:4.2.4.RELEASE'
+    )
+    // compile group: 'org.springframework', name: 'spring-webmvc', version: '4.3.3.RELEASE'
+    compile group: 'org.springframework', name: 'spring-orm', version: '4.3.3.RELEASE'
+    compile group: 'org.springframework', name: 'spring-aspects', version: '4.3.3.RELEASE'
+    compile group: 'org.springframework.security', name: 'spring-security-config', version: '3.2.0.RELEASE'
+    compile group: 'org.springframework.security', name: 'spring-security-taglibs', version: '3.2.0.RELEASE'
+    compile 'org.springframework.security:spring-security-web:3.2.0.RELEASE'
 
+    providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+    //书中是该值，'javax.servlet:servlet-api:2.5' 但是该库比较旧，我们使用最新的 Servlet 依赖
+    runtime 'javax.servlet:jstl:1.1.2'
     // Gson json
     compile 'com.google.code.gson:gson:2.8.0'
     compile 'com.alibaba:fastjson:1.2.35'

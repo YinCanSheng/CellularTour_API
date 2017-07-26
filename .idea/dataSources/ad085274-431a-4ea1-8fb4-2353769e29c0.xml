@@ -12,52 +12,72 @@
     <schema id="6" parent="1" name="sakila"/>
     <schema id="7" parent="1" name="sys"/>
     <schema id="8" parent="1" name="world"/>
-    <table id="9" parent="2" name="teams"/>
-    <table id="10" parent="2" name="users">
-      <Comment>存放账户密码</Comment>
-    </table>
-    <column id="11" parent="9" name="id">
+    <table id="9" parent="2" name="hibernate_sequence"/>
+    <table id="10" parent="2" name="users"/>
+    <column id="11" parent="9" name="next_val">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <column id="12" parent="10" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="12" parent="9" name="name">
+    <column id="13" parent="10" name="avatar">
       <Position>2</Position>
-      <Comment>Rose</Comment>
-      <DataType>varchar(45)|0</DataType>
-      <DefaultExpression>&apos;Jake&apos;</DefaultExpression>
+      <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="13" parent="9" name="age">
+    <column id="14" parent="10" name="createTime">
       <Position>3</Position>
-      <DataType>int(11)|0</DataType>
+      <DataType>datetime(6)|0</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="14" parent="9" name="sex">
+    <column id="15" parent="10" name="name">
       <Position>4</Position>
-      <DataType>varchar(45)|0</DataType>
+      <DataType>varchar(128)|0</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="15" parent="9" name="PRIMARY">
+    <column id="16" parent="10" name="password">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="17" parent="10" name="phone">
+      <Position>6</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="18" parent="10" name="token">
+      <Position>7</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <index id="19" parent="10" name="UK_3g1j96g94xpk3lpxl2qbl985x">
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="20" parent="10" name="UK_af44yue4uh61eqwe6jjyqwvla">
+      <ColNames>token</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="21" parent="10" name="UK_du5v5sr43g5bfnji4vb8hg5s3">
+      <ColNames>phone</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="22" parent="10" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="16" parent="10" name="id">
-      <Position>1</Position>
-      <DataType>int(11)|0</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-    </column>
-    <column id="17" parent="10" name="name">
-      <Position>2</Position>
-      <DataType>varchar(45)|0</DataType>
-    </column>
-    <column id="18" parent="10" name="password">
-      <Position>3</Position>
-      <DataType>varchar(45)|0</DataType>
-    </column>
-    <key id="19" parent="10" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
+    <key id="23" parent="10" name="UK_3g1j96g94xpk3lpxl2qbl985x">
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>UK_3g1j96g94xpk3lpxl2qbl985x</UnderlyingIndexName>
+    </key>
+    <key id="24" parent="10" name="UK_du5v5sr43g5bfnji4vb8hg5s3">
+      <ColNames>phone</ColNames>
+      <UnderlyingIndexName>UK_du5v5sr43g5bfnji4vb8hg5s3</UnderlyingIndexName>
+    </key>
+    <key id="25" parent="10" name="UK_af44yue4uh61eqwe6jjyqwvla">
+      <ColNames>token</ColNames>
+      <UnderlyingIndexName>UK_af44yue4uh61eqwe6jjyqwvla</UnderlyingIndexName>
     </key>
   </database-model>
 </dataSource>

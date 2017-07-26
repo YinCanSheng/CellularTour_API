@@ -37,16 +37,15 @@ public class MyOneServlet extends HttpServlet {
         /**返回到Client的内容类型及编码类型*/resp.setContentType("text/html;charset=UTF-8");
         /**获取*/PrintWriter mPrintWriter = resp.getWriter();
         /**获取用户名-中文需处理编码*/String mName = new String(req.getParameter("name").getBytes("UTF-8"), "UTF-8");
-        /**获取密码*/String mpassW = req.getParameter("paw");
+        /**获取密码*/String mpassW = req.getParameter("passWord");
 
 
         if (mName == null || mpassW == null) {
             mPrintWriter.println("请求失败！");
             return;
         }
-
         if (mName.equals("刘小昀") && mpassW.equals("123")) {
-            MLoginInfo mLoginInfo=new MLoginInfo();
+            MLoginInfo mLoginInfo = new MLoginInfo();
 
             mLoginInfo.setMag("登录成功");
 
@@ -56,9 +55,9 @@ public class MyOneServlet extends HttpServlet {
 
             mLoginInfo.setUserName(mName);
 
-            mPrintWriter.println(JSON.toJSONString(mLoginInfo)+"");
+            mPrintWriter.println(JSON.toJSONString(mLoginInfo) + "");
         } else {
-            MLoginInfo mLoginInfo=new MLoginInfo();
+            MLoginInfo mLoginInfo = new MLoginInfo();
 
             mLoginInfo.setMag("登录失败");
 
