@@ -2,15 +2,11 @@ package ch.cellularTour.controller.API;
 
 import ch.cellularTour.dao.impl.MAccountDaoImpl;
 import ch.cellularTour.model.MAccountInfo;
-import ch.cellularTour.model.MLoginInfo;
 import ch.cellularTour.model.base.MResponseResult;
 import ch.cellularTour.model.requestM.MLoginRequestM;
 import ch.cellularTour.pojo.MUserDB;
-import org.hibernate.annotations.common.util.impl.Log;
-import org.springframework.stereotype.Component;
 
 import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -28,13 +24,8 @@ public class MLogUploadC {
 
         /*校验请求参数*/
         if (!MLoginRequestM.check(mLoginRequestM)) {
-            //System.out.print("用户名:" + mLoginRequestM.getName());
             return new MResponseResult<>(1003, "请求参数异常");
         }
-//        if (name == null || passWord == null) {
-//            System.out.print("用户名:" + name);
-//            return new MResponseResult<>(1003, "请求参数异常");
-//        }
         /*初始化数据操作对象-用户相关*/
         MAccountDaoImpl mAccountDao = new MAccountDaoImpl();
 

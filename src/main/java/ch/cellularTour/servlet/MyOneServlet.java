@@ -1,6 +1,5 @@
 package ch.cellularTour.servlet;
 
-import ch.cellularTour.model.MLoginInfo;
 import com.alibaba.fastjson.JSON;
 
 import javax.servlet.ServletException;
@@ -34,41 +33,41 @@ public class MyOneServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        /**返回到Client的内容类型及编码类型*/resp.setContentType("text/html;charset=UTF-8");
-        /**获取*/PrintWriter mPrintWriter = resp.getWriter();
-        /**获取用户名-中文需处理编码*/String mName = new String(req.getParameter("name").getBytes("UTF-8"), "UTF-8");
-        /**获取密码*/String mpassW = req.getParameter("passWord");
-
-
-        if (mName == null || mpassW == null) {
-            mPrintWriter.println("请求失败！");
-            return;
-        }
-        if (mName.equals("刘小昀") && mpassW.equals("123")) {
-            MLoginInfo mLoginInfo = new MLoginInfo();
-
-            mLoginInfo.setMag("登录成功");
-
-            mLoginInfo.setResult(1);
-
-            mLoginInfo.setUserId("01");
-
-            mLoginInfo.setUserName(mName);
-
-            mPrintWriter.println(JSON.toJSONString(mLoginInfo) + "");
-        } else {
-            MLoginInfo mLoginInfo = new MLoginInfo();
-
-            mLoginInfo.setMag("登录失败");
-
-            mLoginInfo.setResult(0);
-
-            mLoginInfo.setUserId("01");
-
-            mLoginInfo.setUserName(mName);
-
-            mPrintWriter.println(JSON.toJSONString(mLoginInfo));
-        }
+//        /**返回到Client的内容类型及编码类型*/resp.setContentType("text/html;charset=UTF-8");
+//        /**获取*/PrintWriter mPrintWriter = resp.getWriter();
+//        /**获取用户名-中文需处理编码*/String mName = new String(req.getParameter("name").getBytes("UTF-8"), "UTF-8");
+//        /**获取密码*/String mpassW = req.getParameter("passWord");
+//
+//
+//        if (mName == null || mpassW == null) {
+//            mPrintWriter.println("请求失败！");
+//            return;
+//        }
+//        if (mName.equals("刘小昀") && mpassW.equals("123")) {
+//            MLoginInfo mLoginInfo = new MLoginInfo();
+//
+//            mLoginInfo.setMag("登录成功");
+//
+//            mLoginInfo.setResult(1);
+//
+//            mLoginInfo.setUserId("01");
+//
+//            mLoginInfo.setUserName(mName);
+//
+//            mPrintWriter.println(JSON.toJSONString(mLoginInfo) + "");
+//        } else {
+//            MLoginInfo mLoginInfo = new MLoginInfo();
+//
+//            mLoginInfo.setMag("登录失败");
+//
+//            mLoginInfo.setResult(0);
+//
+//            mLoginInfo.setUserId("01");
+//
+//            mLoginInfo.setUserName(mName);
+//
+//            mPrintWriter.println(JSON.toJSONString(mLoginInfo));
+//        }
 
     }
 
