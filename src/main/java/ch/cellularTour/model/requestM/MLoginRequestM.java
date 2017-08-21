@@ -6,7 +6,7 @@ import com.google.gson.annotations.Expose;
 /**
  * Created by 今夜犬吠 on 2017/7/25.
  * <p>
- * 客户端请求模型
+ * 客户端登录注册-请求模型
  */
 public class MLoginRequestM {
     /**

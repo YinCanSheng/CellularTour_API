@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * Created by 今夜犬吠 on 2017/7/17.
- * 登录
+ * Web-登录
  */
 @Controller
 @RequestMapping(value = "/Account")

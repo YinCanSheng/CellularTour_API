@@ -15,6 +15,7 @@ public class MAccountDaoImpl implements MAccountDao {
 
     /**
      * 用户登录
+     *
      * @Table(name="表名") 使用类名
      * @Entity(name="表名") 使用表名
      */
@@ -41,14 +42,19 @@ public class MAccountDaoImpl implements MAccountDao {
     @Override
     public MUserDB registered(String name, String passWord) {
 
+        /**封装用户注册的参数*/
         MUserDB mUserDB = new MUserDB();
-        mUserDB.setName(name);
-        mUserDB.setPassword(passWord);
+        /**用户名*/mUserDB.setName(name);
+        /**密码*/mUserDB.setPassword(passWord);
 
+        /**编写HQL语句利用Hibernate更新数据库*/
         return MHibUtil.queryResult(new MHibUtil.QueryResult<MUserDB>() {
             @Override
             public MUserDB query(Session mSession) {
-                mSession.save(mUserDB);
+                /**利用关系对象模型创建数据库*/mSession.save(mUserDB);
+//                String[] mStrings=new String[]{"s","ff"};
+//               /**更新表数据*/ mSession.createQuery("update MUserDB s set s.name=? where s.password=?")
+//                .setParameter(1,mStrings[0]);
                 return mUserDB;
             }
         });
