@@ -36,7 +36,7 @@ public class MLogUploadC {
      */
     @POST
     @Path("/unite")
-    @Consumes(MediaType.MULTIPART_FORM_DATA+";charset=utf-8" )
+    @Consumes(MediaType.MULTIPART_FORM_DATA + ";charset=utf-8")
     @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
     public MResponseResult uniteUp(@FormDataParam("file") InputStream mFileInputStream
             , @FormDataParam("file") FormDataContentDisposition mDisposition) {
@@ -61,13 +61,13 @@ public class MLogUploadC {
         File mFile = new File(MConstStr.SAVE_FILE_PATH + mFileNmae);
 
         /**自定义接收*/
-        MFileUtils.getInstance().toolSaveFile(mFileInputStream, mFile);
-//        try {
-//            /**使用commons框架*/
-//           // FileUtils.copyInputStreamToFile(mFileInputStream,mFile);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        //MFileUtils.getInstance().toolSaveFile(mFileInputStream, mFile);
+        try {
+            /**使用commons框架*/
+            FileUtils.copyInputStreamToFile(mFileInputStream, mFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return new MResponseResult(1001, "上传成功");
     }
 
