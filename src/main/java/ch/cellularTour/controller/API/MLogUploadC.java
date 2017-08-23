@@ -61,13 +61,13 @@ public class MLogUploadC {
         File mFile = new File(MConstStr.SAVE_FILE_PATH + mFileNmae);
 
         /**自定义接收*/
-        //MFileUtils.getInstance().toolSaveFile(mFileInputStream, mFile);
-        try {
-            /**使用commons框架*/
-            FileUtils.copyInputStreamToFile(mFileInputStream,mFile);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        MFileUtils.getInstance().toolSaveFile(mFileInputStream, mFile);
+//        try {
+//            /**使用commons框架*/
+//           // FileUtils.copyInputStreamToFile(mFileInputStream,mFile);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
         return new MResponseResult(1001, "上传成功");
     }
 
