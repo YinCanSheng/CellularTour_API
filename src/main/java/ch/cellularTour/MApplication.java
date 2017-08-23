@@ -7,6 +7,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.support.jaxrs.FastJsonProvider;
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 import com.google.gson.GsonBuilder;
+import org.glassfish.jersey.media.multipart.MultiPartFeature;
 import org.glassfish.jersey.server.ResourceConfig;
 
 import java.util.logging.Logger;
@@ -29,7 +30,9 @@ public class MApplication extends ResourceConfig {
         // register(MLogUploadC.class);
         /*注册JSON解析-自定义*/
         //register(JacksonJsonProvider.class);
+       // register(JspMvcFeature)
         register(GsonProvider.class);//GSON
+        register(MultiPartFeature.class);//用于接收文件
         //register(GsonBuilder.class);
         //register(JSON.class);//FastJson
         //register(FastJsonProvider.class);

@@ -57,6 +57,13 @@ dependencies {
     compile 'org.glassfish.jersey.core:jersey-client:2.26-b03'
     compile 'org.glassfish.jersey.core:jersey-server:2.26-b03'
     compile 'org.glassfish.jersey.containers:jersey-container-servlet:2.26-b03'
+
+    //上传文件需要此依赖
+    compile group: 'org.glassfish.jersey.media', name: 'jersey-media-multipart', version: '2.26-b03'
+    //操作文件流 Apache提供的工具
+    compile group: 'commons-io', name: 'commons-io', version: '2.4'
+
+
     // 也是一个 Json 解析库
     compile 'org.glassfish.jersey.media:jersey-media-json-jackson:2.26-b03'
 
@@ -71,4 +78,6 @@ dependencies {
     // MySQL 驱动库
     // https://mvnrepository.com/artifact/mysql/mysql-connector-java
     compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.6'
+
+
 }

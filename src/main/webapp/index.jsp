@@ -55,6 +55,8 @@
                             <label><input type="checkbox"/>记住密码</label>
                         </div>
                         <button type="submit" class="btn btn-default">登录</button>
+                        <input id="testBtn" type="button" value="测试文件上传"
+                               onclick="location.href='http://localhost:8080/upload.jsp'"/>
                     </form>
                 </div>
                 <div class="col-md-4 column">

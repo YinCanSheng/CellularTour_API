@@ -7,4 +7,5 @@ package ch.cellularTour.utils;
  */
 public class MConstStr {
 
+    /**保存的文件路径*/public static final String SAVE_FILE_PATH="d:/";
 }

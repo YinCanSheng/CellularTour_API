@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class MLogin {
 
     /**
-     * 登录
+     * 测试登录
      *
      * @return
      */
@@ -26,5 +26,15 @@ public class MLogin {
         }
         //return "redirect:/main.jsp";
         return "index";
+    }
+
+
+    /**
+     * 跳转文件上传页
+     */
+    @RequestMapping(value = "/jumpFileJsp",method = RequestMethod.GET)
+    public String jumpFileJsp(){
+
+        return "upload";
     }
 }
